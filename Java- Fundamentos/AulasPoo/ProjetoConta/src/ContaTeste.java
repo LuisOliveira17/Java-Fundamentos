@@ -20,6 +20,7 @@ public class ContaTeste {
 
             opcao = Integer.parseInt(sc.nextLine()); //Limpar o Buffer;
 
+        //Não esquecer de implementar loop ao menu
             switch (opcao) {
                 case 1 -> {
                     execCadastrar();
@@ -55,20 +56,24 @@ public class ContaTeste {
     }
 
     public static void execConsultar(){
-
+        cc.imprimir();
     }
 
     public static void execSacar(){
         double valorSaque=0;
-        System.out.println("Digite o valor:");
+        System.out.println("Digite o valor saque:");
         valorSaque= Double.parseDouble(input.nextLine());
 
-        valorSaque=cc.sacar(valorSaque);
-       int status=cc.sacar(valorSaque);
+        cc.sacar(valorSaque);
+        int status=cc.sacar(valorSaque);
         System.out.println(status); //Apenas para testar e ver se a lógica funcionou
     }
 
     public static void execDepositar(){
+        double valorDeposito=0;
+        System.out.println("Digite valor deposito:");
+        valorDeposito=Double.parseDouble(input.nextLine());
 
+        cc.depositar(valorDeposito);
     }
 }
