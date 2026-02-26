@@ -1,45 +1,74 @@
 import java.sql.SQLOutput;
 import java.util.Scanner;
 public class ContaTeste {
-    Conta cc = new Conta(); //Atributo publico da classe conta
+    static Conta cc = new Conta(); //Atributo publico da classe conta
+    static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int opcao;
 
-        System.out.println("Menu:");
-        System.out.println("==================");
-        System.out.println("1.Cadastrar");
-        System.out.println("2.Depositar");
-        System.out.println("3.Sacar");
-        System.out.println("4.Consultar");
-        System.out.println("0.Sair");
-        System.out.println("==================");
-        System.out.println("Escolha:");
+            System.out.println("Menu:");
+            System.out.println("==================");
+            System.out.println("1.Cadastrar");
+            System.out.println("2.Depositar");
+            System.out.println("3.Sacar");
+            System.out.println("4.Consultar");
+            System.out.println("0.Sair");
+            System.out.println("==================");
+            System.out.println("Escolha:");
 
-        int opcao=Integer.parseInt(sc.nextLine()); //Limpar o Buffer;
+            opcao = Integer.parseInt(sc.nextLine()); //Limpar o Buffer;
 
-        switch (opcao){
-            case 1->{
-               execCadastrar();
-            }
-        }
+            switch (opcao) {
+                case 1 -> {
+                    execCadastrar();
+                }
+                case 2 -> {
+                    execDepositar();
+                }
+                case 3 -> {
+                    execSacar();
+                }
+                case 4 -> {
+                    execConsultar();
+                }
+                case 0 -> {
+                    System.out.println("Fim do Progama");
+                    break;
+                }
+                default -> {
+                    System.out.println("Opcao Invalida");
+                }
+            };
+
+
+
+
     }
 
     //Quebrei a cabeça para decifrar o porque não chamava no switch;
     //Como o main é um metodo static, nao chamará funcs. não estáticas
+
     public static void execCadastrar(){
 
     }
 
-    public void execConsultar(){
+    public static void execConsultar(){
 
     }
 
-    public void execSacar(){
+    public static void execSacar(){
+        double valorSaque=0;
+        System.out.println("Digite o valor:");
+        valorSaque= Double.parseDouble(input.nextLine());
 
+        valorSaque=cc.sacar(valorSaque);
+       int status=cc.sacar(valorSaque);
+        System.out.println(status); //Apenas para testar e ver se a lógica funcionou
     }
 
-    public void execDepositar(){
+    public static void execDepositar(){
 
     }
 }

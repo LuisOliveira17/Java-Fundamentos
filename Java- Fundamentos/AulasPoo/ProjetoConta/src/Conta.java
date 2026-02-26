@@ -5,7 +5,7 @@ public class Conta {
     public String nomeCliente;
 
     public int sacar(double valorSaque){
-        if(saldo<valorSaque){
+        if(saldo<valorSaque||saldo==0){
             return 0;
         }
         return 1;
