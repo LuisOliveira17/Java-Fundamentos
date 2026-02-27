@@ -8,6 +8,7 @@ public class Conta {
         if(saldo<valorSaque||saldo==0){
             return 0;
         }
+        saldo-=valorSaque;
         return 1;
     }
 
@@ -19,7 +20,8 @@ public class Conta {
         System.out.println("conta = " + conta);
         System.out.println("agencia = " + agencia);
         System.out.println("saldo = " + saldo);
-        System.out.println("nomeCliente = " + nomeCliente);    }
+        System.out.println("nomeCliente = " + nomeCliente);
+    }
 
 
 }
