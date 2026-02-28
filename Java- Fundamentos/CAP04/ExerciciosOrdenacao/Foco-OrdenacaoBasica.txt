@@ -1,0 +1,84 @@
+=========================================
+TREINO FUNDAMENTAL – LÓGICA E ORDENAÇÃO
+Autor: Luis
+Objetivo: Desenvolver pensamento algorítmico em Java
+=========================================
+
+
+========================
+DIA 1–2
+FOCO: MAIOR / MENOR / SEGUNDO MAIOR
+========================
+
+1. Leia 3 números e mostre apenas o maior.
+
+2. Leia 4 números e mostre o menor.
+
+3. Leia 5 números e mostre o maior e o menor.
+
+4. Leia 5 números e mostre o segundo maior.
+
+5. Leia 6 números e mostre o maior e o segundo maior.
+
+6. Leia 7 números e mostre:
+   - Maior
+   - Segundo maior
+   - Menor
+
+7. Leia 5 números negativos e mostre o maior.
+
+8. Leia 6 números e informe se o maior é par ou ímpar.
+
+9. Leia 8 números e mostre a diferença entre o maior
+   e o segundo maior.
+
+10. Leia 10 números e mostre:
+    - Maior
+    - Segundo maior
+    - Quantas vezes o maior apareceu
+
+
+========================
+DIA 3–4
+FOCO: ORDENAR 3 NÚMEROS
+========================
+
+11. Leia 3 números e mostre em ordem crescente.
+
+12. Leia 3 números e mostre em ordem decrescente.
+
+13. Leia 3 números e mostre:
+    - Primeiro o menor
+    - Depois o maior
+    - Por último o número do meio
+
+14. Leia 3 números e diga qual posição cada um ocupa
+    (1º, 2º, 3º).
+
+15. Leia 3 números e ordene apenas se eles não estiverem
+    ordenados.
+
+16. Leia 3 números e mostre a soma deles após ordenar.
+
+17. Leia 3 números e mostre apenas o valor do meio.
+
+18. Leia 3 idades e mostre-as em ordem crescente.
+
+19. Leia 3 salários e mostre-os em ordem decrescente.
+
+20. Leia 3 notas e mostre-as em ordem crescente
+    junto com a média final.
+
+
+=========================================
+REGRAS DO TREINO
+=========================================
+
+- Não usar bibliotecas prontas.
+- Explicar a lógica antes de codar.
+- Fazer funcionar.
+- Refatorar depois.
+- Reescrever sem olhar quando terminar.
+- Subir no GitHub apenas após entender 100%.
+
+=========================================

@@ -1,0 +1,61 @@
+==============================
+LISTA DE EXERCÍCIOS - ORDENAÇÃO
+==============================
+
+1. Leia 3 números inteiros e imprima-os em ordem crescente.
+
+2. Leia 3 números inteiros e imprima-os em ordem decrescente.
+
+3. Leia 4 números e exiba apenas o maior e o menor valor.
+
+4. Leia 4 números e mostre-os em ordem crescente.
+
+5. Leia 5 números e mostre apenas o segundo maior valor.
+
+6. Leia 5 números e mostre o terceiro maior valor.
+
+7. Leia 6 números e mostre-os em ordem crescente sem usar vetor.
+
+8. Leia 5 números e informe quantas trocas seriam necessárias
+   para colocá-los em ordem crescente.
+
+9. Leia 7 números e mostre:
+   - O maior
+   - O segundo maior
+   - O terceiro maior
+
+10. Leia 5 números e diga se eles já estão ordenados
+    em ordem crescente ou não.
+
+11. Leia 10 números usando vetor e ordene-os em ordem
+    crescente sem usar Arrays.sort.
+
+12. Leia 10 números e implemente um algoritmo que
+    empurre o maior valor para o final a cada passagem.
+
+13. Leia 8 números e ordene-os em ordem decrescente
+    usando vetor.
+
+14. Leia 10 números, ordene-os e mostre a mediana.
+
+15. Leia 10 números e ordene apenas os números pares,
+    mantendo os ímpares nas posições originais.
+
+16. Leia 10 números:
+    - Ordene os primeiros 5 em ordem crescente
+    - Ordene os últimos 5 em ordem decrescente
+
+17. Leia 8 números e reorganize colocando:
+    - Primeiro os pares ordenados
+    - Depois os ímpares ordenados
+
+18. Leia 10 números, ordene-os e mostre a diferença
+    entre o maior e o menor valor.
+
+19. Leia 10 números e ordene-os sem usar variável
+    auxiliar na troca.
+
+20. Leia 15 números e crie:
+    - Um método que ordena crescente
+    - Um método que ordena decrescente
+    Permita que o usuário escolha a ordenação.
