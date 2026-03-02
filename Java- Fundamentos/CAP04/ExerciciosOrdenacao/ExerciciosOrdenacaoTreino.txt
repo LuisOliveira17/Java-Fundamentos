@@ -2,7 +2,7 @@
 LISTA DE EXERCÍCIOS - ORDENAÇÃO
 ==============================
 
-1. Leia 3 números inteiros e imprima-os em ordem crescente.
+1. Leia 3 números inteiros e imprima-os em ordem crescente. V 02/03/2026
 
 2. Leia 3 números inteiros e imprima-os em ordem decrescente.
 
