@@ -9,7 +9,7 @@ public class ContaTeste {
         int opcao;
 
         do {
-            System.out.println("Menu:");
+            System.out.println("\nMenu:");
             System.out.println("==================");
             System.out.println("1.Cadastrar");
             System.out.println("2.Depositar");
