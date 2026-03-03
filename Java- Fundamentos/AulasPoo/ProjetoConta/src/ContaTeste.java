@@ -90,8 +90,15 @@ public class ContaTeste {
 
     public static void execDepositar(){
         double valorDeposito=0;
-        System.out.println("Digite valor deposito:");
-        valorDeposito=Double.parseDouble(input.nextLine());
+        do{
+            if(valorDeposito<0){
+                System.out.println("Digite um valor válido");
+            }
+            System.out.println("Digite valor deposito:");
+            valorDeposito=Double.parseDouble(input.nextLine());
+        }while(valorDeposito<0);
+
+
         cc.depositar(valorDeposito);
     }
 }
