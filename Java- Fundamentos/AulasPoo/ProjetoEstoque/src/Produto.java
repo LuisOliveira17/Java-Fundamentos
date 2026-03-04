@@ -4,12 +4,15 @@ public class Produto {
     public int quantidade;
     public double preco;
 
-    public void darBaixa(int qtde){
+    public boolean darBaixa(int qtde){
         if(qtde>quantidade){
             System.out.println("Quantidade eh maior");
-        } else if (qtde<=0&&qtde>0) { //Tratar o parametro de nao poder ser 0 no input do main
+            return false;
+        } else if (qtde<=quantidade) { //Tratar o parametro de nao poder ser 0 no input do main
             quantidade-=qtde;
+            return true;
         }
+        return true;
     }
 
     public void darEntrada (int qtde){
