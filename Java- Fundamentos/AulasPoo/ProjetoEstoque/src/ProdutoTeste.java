@@ -44,10 +44,13 @@ public class ProdutoTeste {
         prodExec.preco=Double.parseDouble(sc.nextLine());
     }
 
+    public void execVenda(){
+        
+    }
     public void execImprimir(){
         Produto prodExec = new Produto();
-
         prodExec.imprimir();
-
     }
+
+
 }
