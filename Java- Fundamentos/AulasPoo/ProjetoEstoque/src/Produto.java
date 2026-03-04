@@ -31,12 +31,10 @@ public class Produto {
         System.out.println("nome = " + nome);
         System.out.println("quantidade = " + quantidade);
         System.out.println("preco = " + preco);
+        System.out.println("---------------------------");
 
     }
 
-    public void cadastrar(){
-
-    }
 
 }
 
