@@ -33,11 +33,6 @@ public class Produto {
         System.out.println("preco = " + preco);
 
     }
-
-    public void cadastrar(){
-
-    }
-
 }
 
 
