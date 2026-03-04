@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class ProdutoTeste {
+    static Produto prod = new Produto();
     public static void main(String[] args){
-        Produto prod = new Produto();
+
         Scanner input = new Scanner(System.in);
         ProdutoTeste prodTeste= new ProdutoTeste();
 
@@ -10,46 +11,83 @@ public class ProdutoTeste {
         do{
             System.out.println("==================");
             System.out.println("1.Cadastrar");
-            System.out.println("2.Venda");
-            System.out.println("3.Consultar");
-            System.out.println("4.Sair");
+            System.out.println("2.Entrada Estoque");
+            System.out.println("3.Venda (saida)");
+            System.out.println("4.Consultar");
+            System.out.println("5.Sair");
             System.out.println("==================");
             System.out.println("Escolha:");
             opcao=Integer.parseInt(input.nextLine());
 
             switch (opcao){
-                case 1->prodTeste.execCadastrar();
-                case 2->prodTeste.execImprimir();
+                case 1->execCadastrar();
+                case 2->execEntrada();
+                case 3->execDarBaixa();
+                case 4->execImprimir();
+                case 5-> System.out.println("FIM DO PROGRAMA");
+                default -> System.out.println("Opcao invalida");
             }
 
 
-        }while(opcao!=4);
+        }while(opcao!=5);
     }
 
-    public void  execCadastrar(){
+    public static void  execCadastrar(){
         Scanner sc =  new Scanner(System.in);
-        Produto prodExec = new Produto();
 
         System.out.println("Digite id produto:");
-        prodExec.idProduto=Integer.parseInt(sc.nextLine());
+        prod.idProduto=Integer.parseInt(sc.nextLine());
 
 
         System.out.println("Digite nome produto:");
-        prodExec.nome=sc.nextLine();
-
-        System.out.println("Digite Quantidade produto:");
-        prodExec.quantidade=Integer.parseInt(sc.nextLine());
+        prod.nome=sc.nextLine();
 
         System.out.println("Digite o preco:");
-        prodExec.preco=Double.parseDouble(sc.nextLine());
+        prod.preco=Double.parseDouble(sc.nextLine());
     }
 
-    public void execVenda(){
-        
+    public static void execDarBaixa(){
+        Scanner sc =  new Scanner(System.in);
+
+        int quantidade=0;
+        do {
+            if((prod.quantidade)-quantidade==0||(prod.quantidade)-quantidade<0){
+                System.out.println("\nQuantidade ira zerar ou negativar. Tente novamente");
+            }
+            if (quantidade<0) System.out.println("Digite um valor valido:");
+            System.out.println("Digite a quantidade vendida:");
+            quantidade=Integer.parseInt(sc.nextLine());
+        }while (quantidade<0||prod.quantidade-quantidade<=0); //Não deixa o estoque zerar ou ficar negativo
+      boolean status=  prod.darBaixa(quantidade);
+
+      if(status){
+          System.out.println("VENDA REALIZADA");
+      }else {
+          System.out.println("ERRO DE VENDA");
+      }
     }
-    public void execImprimir(){
-        Produto prodExec = new Produto();
-        prodExec.imprimir();
+    public static void execImprimir(){
+        prod.imprimir();
+    }
+
+    public static void execEntrada(){
+        Scanner sc = new Scanner(System.in);
+        int quantidade=0;
+        do {
+            System.out.println("Digite a quantidade de produtos:");
+            quantidade = Integer.parseInt(sc.nextLine());
+
+            if(quantidade<=0){
+                System.out.println("DIGITE UM VALOR VALIDO");
+            }
+        }while(quantidade<=0);
+        boolean status=prod.darEntrada(quantidade);
+
+        if(status){
+            System.out.println("ENTRADA EXECUTADA");
+        }else{
+            System.out.println("ENTRADA NEGADA");
+        }
     }
 
 

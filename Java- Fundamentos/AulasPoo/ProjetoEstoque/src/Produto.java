@@ -6,20 +6,25 @@ public class Produto {
 
     public boolean darBaixa(int qtde){
         if(qtde>quantidade){
-            System.out.println("Quantidade eh maior");
+            System.out.println("QUANTIDADE EH MAIOR");
             return false;
-        } else if (qtde<=quantidade) { //Tratar o parametro de nao poder ser 0 no input do main
+        } else if (qtde<=quantidade) {
+            double valorVenda=qtde*preco;
+            System.out.println("Valor venda: "+valorVenda);
             quantidade-=qtde;
             return true;
         }
         return true;
     }
 
-    public void darEntrada (int qtde){
-        if(qtde>0){
-            quantidade+=qtde;
+    public boolean darEntrada (int qtde){
+        if(qtde<=0){
+            return false;
         }
+        quantidade+=qtde;
+        return true;
     }
+
 
     public void imprimir(){
         System.out.println("idProduto = " + idProduto);
@@ -28,6 +33,11 @@ public class Produto {
         System.out.println("preco = " + preco);
 
     }
+
+    public void cadastrar(){
+
+    }
+
 }
 
 
