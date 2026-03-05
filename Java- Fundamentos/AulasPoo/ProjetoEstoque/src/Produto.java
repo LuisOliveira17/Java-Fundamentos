@@ -34,6 +34,15 @@ public class Produto {
         System.out.println("---------------------------");
 
     }
+
+    public boolean getId(int id){
+        if(idProduto==id){
+            System.out.println("nome = " + nome);
+            return true; //Produto existe na lista;
+        }else{
+            return false; //Produto não existe
+        }
+    }
 }
 
 

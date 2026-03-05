@@ -44,18 +44,19 @@ public class ProdutoTeste {
         Scanner sc =  new Scanner(System.in);
         String opcao;
         do {
+            Produto produto = new Produto(); //Cria um novo produto independente para poder cadastrar na lista e puxar com id
             System.out.println("Digite id produto:");
-            prod.idProduto = Integer.parseInt(sc.nextLine());
+            produto.idProduto = Integer.parseInt(sc.nextLine());
 
 
             System.out.println("Digite nome produto:");
-            prod.nome = sc.nextLine();
+            produto.nome = sc.nextLine();
 
             System.out.println("Digite o preco:");
-            prod.preco = Double.parseDouble(sc.nextLine());
+            produto.preco = Double.parseDouble(sc.nextLine());
 
             //Adiciona o produto à lista de produtos
-            produtos.add(prod);
+            produtos.add(produto);
 
             //Loop para decidir se quer adiiconar mais produtos à lista:
             do {
@@ -70,17 +71,33 @@ public class ProdutoTeste {
 
     public static void execDarBaixa(){
         Scanner sc =  new Scanner(System.in);
-
+        Produto produtoEncontrado = new Produto();
+        produtoEncontrado = null;
+        int id;
         int quantidade=0;
         do {
-            if((prod.quantidade)-quantidade==0||(prod.quantidade)-quantidade<0){
+
+            System.out.println("Digite o id do produto a ser vendido:");
+            id = Integer.parseInt(sc.nextLine());
+            for(Produto produto: produtos){
+                if(produto.idProduto==id){
+                    produtoEncontrado=produto;
+                }
+            }
+
+            if(produtoEncontrado==null){
+                System.out.println("PRODUTO NAO ENCONTRADO");
+            }
+            System.out.println("Digite a quantidade vendida:");
+            quantidade=Integer.parseInt(sc.nextLine());
+
+            if((produtoEncontrado.quantidade)-quantidade==0||(produtoEncontrado.quantidade)-quantidade<0){
                 System.out.println("\nQuantidade ira zerar ou negativar. Tente novamente");
             }
             if (quantidade<0) System.out.println("Digite um valor valido:");
-            System.out.println("Digite a quantidade vendida:");
-            quantidade=Integer.parseInt(sc.nextLine());
-        }while (quantidade<0||prod.quantidade-quantidade<=0); //Não deixa o estoque zerar ou ficar negativo
-      boolean status=  prod.darBaixa(quantidade);
+
+        }while (quantidade<0||produtoEncontrado.quantidade-quantidade<=0); //Não deixa o estoque zerar ou ficar negativo
+      boolean status=  produtoEncontrado.darBaixa(quantidade);
 
       if(status){
           System.out.println("VENDA REALIZADA");
@@ -96,8 +113,24 @@ public class ProdutoTeste {
 
     public static void execEntrada(){
         Scanner sc = new Scanner(System.in);
+        Produto produtoEncontrado = null; //Cria objeto produto para receber informacoes
         int quantidade=0;
+        int id=0;
         do {
+            //Lógica para procurar o item da lista:
+            System.out.println("Digite o id do produto:");
+            id=Integer.parseInt(sc.nextLine());
+
+
+            for(Produto produto: produtos){
+                if(produto.idProduto==id){
+                    produtoEncontrado=produto;
+                    break;
+                }
+            }
+            if(produtoEncontrado==null){
+                System.out.println("PRODUTO NAO ENCONTRADO");
+            }
             System.out.println("Digite a quantidade de produtos:");
             quantidade = Integer.parseInt(sc.nextLine());
 
@@ -105,7 +138,7 @@ public class ProdutoTeste {
                 System.out.println("DIGITE UM VALOR VALIDO");
             }
         }while(quantidade<=0);
-        boolean status=prod.darEntrada(quantidade);
+        boolean status=produtoEncontrado.darEntrada(quantidade);
 
         if(status){
             System.out.println("ENTRADA EXECUTADA");
