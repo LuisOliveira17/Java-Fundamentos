@@ -10,11 +10,13 @@ public class Funcionario {
     }
 
     public String listar(){
-        return "Nome:"+nome+
+        return "\n-------------------------"+
+                "\nNome:"+nome+
                 "\nSalario:"+salario+
                 "\nRG:"+rg+
                 "\nDepartamento:"+departamento+
-                "\nAtivo:"+ativo;
+                "\nAtivo:"+ativo+
+                "\n-----------------------";
     }
 
     public void setDepartamento(String dep){

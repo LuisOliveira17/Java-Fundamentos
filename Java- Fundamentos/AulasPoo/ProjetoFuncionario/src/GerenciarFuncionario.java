@@ -40,6 +40,9 @@ public class GerenciarFuncionario {
         Funcionario funcionario = new Funcionario();
         int posicao;
 
+        if(funcionarios.isEmpty()){
+            System.out.println("SEM FUNCIONARIOS CADASTRADOS");
+        }
         System.out.println("Digite a posicao que o func. se encontra:");
         posicao=Integer.parseInt((sc.nextLine()));
 
@@ -50,6 +53,25 @@ public class GerenciarFuncionario {
     }
 
     public static void execBonificar(){
+            Scanner sc = new Scanner(System.in);
+            Funcionario funcionario = new Funcionario();
+            int pos;
+            double valorBon=0;
+            boolean achouFuncionario=false;
+            System.out.println("Digite a posicao que o func. se encontra:");
+            pos=Integer.parseInt(sc.nextLine());
+            funcionario= funcionarios.get(pos);
+            achouFuncionario=true;
+
+           if(achouFuncionario){
+               System.out.println("Digite o valor da bonificacao:");
+               valorBon=Double.parseDouble(sc.nextLine());
+
+               funcionario.bonificar(valorBon);
+               System.out.println("AUMENTO CONCEDIDO");
+           }
+
+
 
     }
 
