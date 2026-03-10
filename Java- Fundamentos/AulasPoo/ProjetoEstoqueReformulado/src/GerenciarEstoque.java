@@ -17,6 +17,7 @@ public class GerenciarEstoque {
 
             switch (op){
                 case 1->execCadastro();
+                case 2->execListar();
             }
         }while(op!=4);
 
@@ -41,7 +42,11 @@ public class GerenciarEstoque {
         estoque.adicionarProduto(produto);
     }
 
-    
+    public static void execListar(){
+        estoque.imprimir();
+    }
+
+
 
 
 }

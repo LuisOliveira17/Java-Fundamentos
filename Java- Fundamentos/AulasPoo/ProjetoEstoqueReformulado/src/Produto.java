@@ -9,6 +9,7 @@ public class Produto {
         System.out.println("nomeProduto = " + nomeProduto);
         System.out.println("quantidadeProduto = " + quantidadeProduto);
         System.out.println("precoProduto = " + precoProduto);
+        System.out.println("");
 
     }
 
