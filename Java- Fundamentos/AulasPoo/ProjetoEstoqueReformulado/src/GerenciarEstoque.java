@@ -7,7 +7,7 @@ public class GerenciarEstoque {
         int op=0;
 
         do{
-            System.out.println("1.Cadastrar");
+            System.out.println("\n1.Cadastrar");
             System.out.println("2.Listar");
             System.out.println("3.Venda");
             System.out.println("4.Sair");
@@ -18,6 +18,7 @@ public class GerenciarEstoque {
             switch (op){
                 case 1->execCadastro();
                 case 2->execListar();
+                case 3->execGerarVenda();
             }
         }while(op!=4);
 
@@ -46,10 +47,28 @@ public class GerenciarEstoque {
         estoque.imprimir();
     }
 
+    public static void execGerarVenda(){
+        Scanner sc = new Scanner(System.in);
+        Produto produtoAchado= new Produto();
+        int pos, quant;
+        boolean vendaRealizada;
+        System.out.println("Digite a posicao do produto:");
+        pos=Integer.parseInt(sc.nextLine());
+
+        produtoAchado=estoque.produtos.get(pos); // Acha o produto dentro da lista e a quantidade
+
+        do{
+            System.out.println("\nDigite a quantidade:");
+            quant=Integer.parseInt(sc.nextLine());
+
+            vendaRealizada = estoque.gerarVenda(produtoAchado, quant);
+          }while(!vendaRealizada);
+
+        // A ideia é não deixar nenhum input na clase de Estoque. Apenas essa terá interações com usuários
+    }
+    }
 
 
-
-}
 
 
 
