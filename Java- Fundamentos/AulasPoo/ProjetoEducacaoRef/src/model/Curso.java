@@ -10,31 +10,19 @@ public class Curso {
     private int numeroAlunos;
     private List<Disciplina> disciplinas;
 
-    //metodo construtor
-    public Curso(){
-        disciplinas= new ArrayList<>();
-    }
-
-    public Curso(int idCurso, String descricao){
-        this(); //Inicializa a lista vazia
+    public Curso(int idCurso,String descricao,String periodo,int numeroAlunos){
         this.idCurso=idCurso;
         this.descricao=descricao;
-    }
-
-    public Curso(int idCurso, String descricao, String periodo, int numeroAlunos){
-        this(idCurso,descricao);
         this.periodo=periodo;
         this.numeroAlunos=numeroAlunos;
+        this.disciplinas = new ArrayList<>();
     }
-    //metodo getters e setters
-
-
-    public int getIdCurso() {
+    public int getIdCruso() {
         return idCurso;
     }
 
-    public void setIdCurso(int idCurso) {
-        this.idCurso = idCurso;
+    public void setIdCruso(int idCruso) {
+        this.idCurso = idCruso;
     }
 
     public String getDescricao() {
@@ -65,8 +53,23 @@ public class Curso {
         return disciplinas;
     }
 
-  public void adicionarDisciplina(Disciplina disciplina){
-        disciplinas.add(disciplina);
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
 
-  }
+    public void adicionarDisciplinas(Disciplina disciplina){
+        disciplinas.add(disciplina);
+    }
+
+    public void listar(){
+        System.out.println("idCurso = " + idCurso);
+        System.out.println("descricao = " + descricao);
+        System.out.println("periodo = " + periodo);
+        System.out.println("numeroAlunos = " + numeroAlunos);
+        System.out.println("------------------------------------");
+        for(Disciplina disciplina:disciplinas){
+            disciplina.listar();
+        }
+    }
 }
+
