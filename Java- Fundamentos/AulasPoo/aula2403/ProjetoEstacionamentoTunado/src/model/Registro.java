@@ -13,6 +13,12 @@ public class Registro {
         this.veiculo=veiculo;
         this.entrada=LocalDateTime.now();
     }
+
+    public Registro(){
+
+    }
+
+
     public Duration calcularTempo(){
         return Duration.between(entrada,saida);
     }
