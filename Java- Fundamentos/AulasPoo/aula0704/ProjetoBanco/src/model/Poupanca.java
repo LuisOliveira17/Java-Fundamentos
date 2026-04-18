@@ -11,4 +11,9 @@ public class Poupanca extends Conta{
         super(numConta,nomeAgencia,nomeCliente);
         this.taxaRendimento=taxaRendimento;
     }
+
+    @Override
+    double cobrarTaxaSaque() {
+        return 0.05;
+    }
 }

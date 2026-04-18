@@ -6,6 +6,7 @@ public abstract class Conta {
     private String nomeAgencia;
     protected double saldo;
 
+
     public Conta(){
     }
 
@@ -14,7 +15,6 @@ public abstract class Conta {
         this.nomeCliente = nomeCliente;
         this.nomeAgencia = nomeAgencia;
         this.saldo = 0.0;
-
     }
 
     public double getSaldo() {
@@ -59,7 +59,7 @@ public abstract class Conta {
 
     public void sacar(double valor) throws IllegalAccessException {
         if(valor<=saldo){
-            this.saldo -= valor;
+            this.saldo -= valor-(valor*cobrarTaxaSaque());
         }else {
             throw new IllegalAccessException("Sem saldo para saque");
         }
@@ -72,4 +72,6 @@ public abstract class Conta {
         sb.append("Saldo:").append(this.saldo).append("\n");
         return sb.toString();
     }
+    //metodo abstrato para representar cobranca de taxa de saque
+    abstract double cobrarTaxaSaque();
 }

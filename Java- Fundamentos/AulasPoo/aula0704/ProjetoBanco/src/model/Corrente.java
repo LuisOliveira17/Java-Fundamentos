@@ -14,7 +14,7 @@ public class Corrente extends Conta{
     @Override
     public void sacar(double valor) throws IllegalAccessException {
         if(valor<=(getSaldo()-limite)){
-            saldo-=valor;
+            saldo-=(valor-(valor*cobrarTaxaSaque()));
         }else{
             throw new IllegalAccessException("Sem saldo ou limite");
         }
@@ -26,5 +26,10 @@ public class Corrente extends Conta{
         sb.append(super.toString());
         sb.append("Limite:").append(this.limite).append("\n");
         return  sb.toString();
+    }
+
+    @Override
+    double cobrarTaxaSaque() {
+        return 0.10;
     }
 }
