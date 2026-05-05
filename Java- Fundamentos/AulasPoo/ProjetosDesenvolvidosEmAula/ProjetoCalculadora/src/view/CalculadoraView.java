@@ -20,7 +20,7 @@ public class CalculadoraView extends JFrame implements ActionListener {
     private Dimension dFrame, dDisplay, dButton;
 
     //Booleans para não poder repetir:
-    private boolean boolSomar = false;
+    private boolean boolSomar = false, boolSubtracao=false, boolMult=false, boolDiv=false, boolPonto=false;
 
     private float n1 = 0, n2 = 0;
 
@@ -124,7 +124,14 @@ public class CalculadoraView extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == buttonLimpar) {
             boolSomar = false;
+            boolSubtracao = false;
+            boolDiv = false;
+            boolPonto = false;
+            boolMult = false;
+            n1 = 0;
+            n2 = 0;
             textDisplay.setText("");
+            labelExpressao.setText("");
         }
 
         if (e.getSource() == button7) {
@@ -165,7 +172,10 @@ public class CalculadoraView extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == buttonPonto) {
+            if(!boolPonto){
             textDisplay.setText(textDisplay.getText() + ".");
+                boolPonto = true;
+            }
         }
 
         if (e.getSource() == buttonApagar) {
@@ -177,31 +187,100 @@ public class CalculadoraView extends JFrame implements ActionListener {
 
         //Para essa lógica funcionar, ao clicar no 'C' da Calc, tem que ficar falso tudo
         if(e.getSource() == buttonSomar) {
+            if(!boolSomar) {
             if(textDisplay.getText().length() > 0) {
                 n1 = Float.parseFloat(textDisplay.getText()); // pega o número limpo
                 labelExpressao.setText(textDisplay.getText() + " +");
                 textDisplay.setText("");
                 boolSomar = true;
             }
+            }
         }
 
+
+        if(e.getSource() == buttonSubtrair) {
+            Calculadora opr = new Calculadora();
+
+            if(!boolSubtracao){
+            if(textDisplay.getText().length() > 0) {
+                n1 =  Float.parseFloat(textDisplay.getText());
+                labelExpressao.setText(textDisplay.getText()+"-");
+                textDisplay.setText("");
+                boolSubtracao = true;
+            }
+            }
+        }
+
+        if(e.getSource() == buttonMultiplicar) {
+            if(!boolMult){
+                if(textDisplay.getText().length() > 0) {
+                    n1 =  Float.parseFloat(textDisplay.getText());
+                    labelExpressao.setText(textDisplay.getText()+"*");
+                    textDisplay.setText("");
+                    boolMult=true;
+                }
+            }
+        }
+
+        if(e.getSource() == buttonSinal) {
+            float  numeroSinalTrocado= Float.parseFloat(textDisplay.getText());
+            numeroSinalTrocado = numeroSinalTrocado*(-1);
+            textDisplay.setText(String.valueOf(numeroSinalTrocado));
+        }
+
+        if(e.getSource() == buttonDividir) {
+            if(!boolDiv){
+                n1 =  Float.parseFloat(textDisplay.getText());
+                labelExpressao.setText(textDisplay.getText()+"/");
+                textDisplay.setText("");
+                boolDiv=true;
+            }
+        }
         if(e.getSource() == buttonIgual) {
-            Calculadora calc = new Calculadora();
+            Calculadora opr = new Calculadora();
 
             if(textDisplay.getText().length() > 0) {
                 n2 =  Float.parseFloat(textDisplay.getText());
                 textDisplay.setText("");
 
                 if(boolSomar) {
-                    String resultado = String.valueOf( calc.soma(n1,n2));
+                    String resultado = String.valueOf( opr.soma(n1,n2));
                     textDisplay.setText(resultado);
                     labelExpressao.setText("");
                     boolSomar = false;
                     n1=0;
                     n2=0;
                 }
+
+                if(boolSubtracao){
+                    String resultado = String.valueOf(opr.subtracao(n1,n2));
+                    textDisplay.setText(resultado);
+                    labelExpressao.setText("");
+                    boolSubtracao = false;
+                    n1=0;
+                    n2=0;
+                }
+
+                if(boolMult){
+                    String resultado = String.valueOf(opr.multiplicacao(n1,n2));
+                    textDisplay.setText(resultado);
+                    labelExpressao.setText("");
+                    boolMult=false;
+                    n1=0;
+                    n2=0;
+
+                }
+
+                if(boolDiv){
+                    String resultado = String.valueOf(opr.divisao(n1,n2));
+                    textDisplay.setText(resultado);
+                    labelExpressao.setText("");
+                    boolDiv=false;
+                    n1=0;
+                    n2=0;
+                }
             }
-            }
+        }
 
 
     }
