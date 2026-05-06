@@ -4,9 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.time.LocalDate;
 
-public class CaixaView extends JFrame implements ActionListener {
+public class CaixaView extends JFrame implements ActionListener, KeyListener {
     private JLabel labelValor;
     private JLabel labelSaldo;
     private JTextField textValor, textSaldo;
@@ -83,6 +85,7 @@ public class CaixaView extends JFrame implements ActionListener {
         buttonRetirada.addActionListener(this);
         buttonConsulta.addActionListener(this);
         buttonEntrada.addActionListener(this);
+        textValor.addKeyListener(this);
 
         //4. Criar o objeto do tipo Caixa
         caixa = new Caixa();
@@ -103,20 +106,64 @@ public class CaixaView extends JFrame implements ActionListener {
             textSaldo.setText(Double.toString(saldo));
         }
         if(e.getSource() == buttonEntrada){
+            try{
             double valor = Double.parseDouble(textValor.getText());
             caixa.depositar(valor);
             LocalDate data = LocalDate.now();
             String mensagem = "Deposito efetuado em "+data.toString() + "\n";
             textMensagem.append(mensagem);
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(
+                        null,
+                        ex.getMessage(),
+                        "Erro ao Depositar",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         }
 
         if(e.getSource() == buttonRetirada){
+            try{
           double valor = Double.parseDouble(textValor.getText());
           caixa.sacar(valor);
           LocalDate data = LocalDate.now();
           String mensagem = "Sacar efetuado em "+data.toString() + "\n";
           textMensagem.append(mensagem);
           textSaldo.setText("");
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(
+                        null,
+                        ex.getMessage(),
+                        "Erro ao sacar",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        char c = e.getKeyChar();
+
+
+        if(c != '\b' &&(c<'0' || c>'9')){
+            e.consume();
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Caractere Inválido. Apenas números",
+                    "Alerta",
+                    JOptionPane.WARNING_MESSAGE
+            );
+        }
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }
