@@ -64,7 +64,7 @@ public class Main {
         }
 
         System.out.println("Total de itens:"+quantItens);
-        System.out.println("Totaaaaldasdasdasdas:R$"+precoTotal);
+        System.out.println("Total:R$"+precoTotal);
     }
 }
 
