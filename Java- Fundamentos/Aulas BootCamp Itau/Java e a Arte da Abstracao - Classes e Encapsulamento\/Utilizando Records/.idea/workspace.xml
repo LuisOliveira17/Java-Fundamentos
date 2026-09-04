@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e8349356-29c1-46b7-935a-a83c3cd9d8d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Exemplos/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exemplos/src/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Utilizando Records/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Utilizando Records/src/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Utilizando Records/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Utilizando Records/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
